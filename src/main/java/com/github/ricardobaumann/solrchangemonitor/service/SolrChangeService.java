@@ -1,4 +1,4 @@
-package com.github.ricardobaumann.solrchangemonitor;
+package com.github.ricardobaumann.solrchangemonitor.service;
 
 import com.github.ricardobaumann.solrchangemonitor.models.ChangeBatch;
 import com.github.ricardobaumann.solrchangemonitor.repo.ChangeBatchRepo;
@@ -37,7 +37,7 @@ public class SolrChangeService {
 
     @Scheduled(fixedDelay = 10000)
     public void run() throws IOException, SolrServerException {
-        ChangeBatch previousBatch = changeBatchRepo.findFirstByOrderByLastModifiedDateDesc();
+        ChangeBatch previousBatch = changeBatchRepo.findFirstByOrderByCreatedAtDesc();
         Date now = new Date();
         Date lastDate = Optional.ofNullable(previousBatch)
                 .map(ChangeBatch::getLastModifiedDate)

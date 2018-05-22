@@ -1,4 +1,4 @@
-package com.github.ricardobaumann.solrchangemonitor;
+package com.github.ricardobaumann.solrchangemonitor.health;
 
 import com.github.ricardobaumann.solrchangemonitor.repo.SolrRepo;
 

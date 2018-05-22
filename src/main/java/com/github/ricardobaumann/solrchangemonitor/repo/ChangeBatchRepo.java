@@ -8,5 +8,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ChangeBatchRepo extends PagingAndSortingRepository<ChangeBatch, Long> {
 
-    ChangeBatch findFirstByOrderByLastModifiedDateDesc();
+    ChangeBatch findFirstByOrderByCreatedAtDesc();
 }

@@ -1,5 +1,7 @@
 package com.github.ricardobaumann.solrchangemonitor;
 
+import com.github.ricardobaumann.solrchangemonitor.config.AppProperties;
+
 import org.apache.solr.client.solrj.SolrClient;
 import org.apache.solr.client.solrj.impl.HttpSolrClient;
 import org.springframework.boot.SpringApplication;

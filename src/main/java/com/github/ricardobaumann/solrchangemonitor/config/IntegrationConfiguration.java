@@ -1,4 +1,6 @@
-package com.github.ricardobaumann.solrchangemonitor;
+package com.github.ricardobaumann.solrchangemonitor.config;
+
+import com.github.ricardobaumann.solrchangemonitor.service.ContentSource;
 
 import org.springframework.cloud.stream.annotation.EnableBinding;
 import org.springframework.context.annotation.Configuration;
