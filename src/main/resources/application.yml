@@ -14,7 +14,7 @@ spring:
   #rabbitmq:
       #password: "rabbitmq"
       #username: "rabbitmq"
-  jpa.hibernate.ddl-auto: create
+  #jpa.hibernate.ddl-auto: create
   datasource:
     url: jdbc:mysql://localhost:3306/changemonitor
     username: root
@@ -23,6 +23,19 @@ spring:
 hibernate.dialect: org.hibernate.dialect.MySQLDialect
 
 app.solrUrl: http://149.221.203.57:8983/solr/default_core/
+
+
+logging.level.org.hibernate.SQL: DEBUG
+logging.level.org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+
+---
+spring:
+  profiles: docker
+  datasource:
+      url: jdbc:mysql://db:3306/changemonitor
+
+  rabbitmq:
+    host: rabbitmq
 
 
 

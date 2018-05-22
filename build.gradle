@@ -16,7 +16,6 @@ apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 
 group = 'com.github.ricardobaumann'
-version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
 
 repositories {
@@ -39,6 +38,9 @@ dependencies {
 	compile('org.springframework.cloud:spring-cloud-stream-binder-rabbit')
 	// Use MySQL Connector-J
 	compile 'mysql:mysql-connector-java'
+
+    // https://mvnrepository.com/artifact/org.liquibase/liquibase-core
+    compile group: 'org.liquibase', name: 'liquibase-core', version: '3.6.1'
 
     compile 'org.apache.solr:solr-solrj:7.3.0'
 
