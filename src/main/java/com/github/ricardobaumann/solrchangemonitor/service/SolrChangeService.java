@@ -43,6 +43,8 @@ public class SolrChangeService {
                 .map(ChangeBatch::getLastModifiedDate)
                 .orElse(new Date(LocalDateTime.now().minusSeconds(10).atZone(ZoneId.systemDefault()).toInstant().toEpochMilli()));
 
+        LOGGER.info("Polling changes from [{}] on", lastDate);
+
         List<Map<String, Object>> results = solrRepo.getChangesSince(lastDate);
         LOGGER.info("Sending {}", results);
         results.forEach(contentUnitGateway::generate);

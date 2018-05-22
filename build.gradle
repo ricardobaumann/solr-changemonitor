@@ -37,8 +37,8 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-web')
 	compile('org.springframework.cloud:spring-cloud-stream')
 	compile('org.springframework.cloud:spring-cloud-stream-binder-rabbit')
-	// https://mvnrepository.com/artifact/org.hsqldb/hsqldb
-	runtime group: 'org.hsqldb', name: 'hsqldb', version: '2.4.0'
+	// Use MySQL Connector-J
+	compile 'mysql:mysql-connector-java'
 
     compile 'org.apache.solr:solr-solrj:7.3.0'
 
