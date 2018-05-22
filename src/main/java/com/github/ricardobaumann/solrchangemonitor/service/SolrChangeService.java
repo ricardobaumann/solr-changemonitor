@@ -1,6 +1,6 @@
 package com.github.ricardobaumann.solrchangemonitor.service;
 
-import com.github.ricardobaumann.solrchangemonitor.models.ChangeBatch;
+import com.github.ricardobaumann.solrchangemonitor.model.ChangeBatch;
 import com.github.ricardobaumann.solrchangemonitor.repo.ChangeBatchRepo;
 import com.github.ricardobaumann.solrchangemonitor.repo.SolrRepo;
 
@@ -49,4 +49,8 @@ public class SolrChangeService {
         changeBatchRepo.save(new ChangeBatch(now));
     }
 
+    public ChangeBatch resetMillis(Long resetMillis) {
+        ChangeBatch changeBatch = new ChangeBatch(new Date(new Date().getTime() - resetMillis));
+        return changeBatchRepo.save(changeBatch);
+    }
 }

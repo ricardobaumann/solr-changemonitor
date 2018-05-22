@@ -1,4 +1,4 @@
-package com.github.ricardobaumann.solrchangemonitor.models;
+package com.github.ricardobaumann.solrchangemonitor.model;
 
 import java.util.Date;
 import java.util.Objects;
