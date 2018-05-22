@@ -25,7 +25,7 @@ public class SolrChangeService {
 
     private final SolrRepo solrRepo;
     private final ChangeBatchRepo changeBatchRepo;
-    private ContentUnitGateway contentUnitGateway;
+    private final ContentUnitGateway contentUnitGateway;
 
     public SolrChangeService(SolrRepo solrRepo,
                              ChangeBatchRepo changeBatchRepo,
