@@ -1,0 +1,20 @@
+# Spring properties
+spring:
+  profiles: default
+  application:
+     name: solrchangemonitor  # Service registers under this name
+  cloud:
+      stream:
+        bindings:
+          contentChannel:
+            binder: rabbit
+            destination: work.exchange
+            contentType: application/json
+            #group: contentconsumer, lookup
+  #rabbitmq:
+      #password: "rabbitmq"
+      #username: "rabbitmq"
+app.solrUrl: http://149.221.203.57:8983/solr/default_core/
+
+
+
