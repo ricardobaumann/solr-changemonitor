@@ -5,5 +5,4 @@ services:
   - docker
 
 script:
-  - docker-compose up
   - ./gradlew clean build

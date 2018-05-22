@@ -1,10 +1,20 @@
 version: '3.3'
 services:
+   solr-changemonitor:
+    build: .
+    ports:
+      - 8080:8080
+    links:
+      - db:db
+      - rabbitmq:rabbitmq
+    depends_on:
+      - db
+      - rabbitmq
    db:
      image: mysql:5.7
      restart: always
-     ports:
-      - 3306:3306
+     #ports:
+      #- 3306:3306
      environment:
        MYSQL_ROOT_PASSWORD: root
        MYSQL_DATABASE: changemonitor
@@ -13,6 +23,6 @@ services:
 
    rabbitmq:
       image: rabbitmq:management
-      ports:
-        - 5672:5672
-        - 15672:15672
+      #ports:
+        #- 5672:5672
+        #- 15672:15672
