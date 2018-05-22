@@ -1,5 +1,4 @@
 version: '3.3'
-
 services:
    db:
      image: mysql:5.7
@@ -11,3 +10,9 @@ services:
        MYSQL_DATABASE: changemonitor
        MYSQL_USER: user
        MYSQL_PASSWORD: passwd
+
+   rabbitmq:
+      image: rabbitmq:management
+      ports:
+        - 5672:5672
+        - 15672:15672
