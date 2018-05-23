@@ -1,4 +1,4 @@
-package com.github.ricardobaumann.solrchangemonitor.config;
+package de.funkedigital.fram.solrchangemonitor.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;

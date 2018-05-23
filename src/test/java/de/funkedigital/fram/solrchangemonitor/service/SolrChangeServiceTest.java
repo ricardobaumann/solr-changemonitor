@@ -1,8 +1,8 @@
-package com.github.ricardobaumann.solrchangemonitor.service;
+package de.funkedigital.fram.solrchangemonitor.service;
 
-import com.github.ricardobaumann.solrchangemonitor.model.ChangeBatch;
-import com.github.ricardobaumann.solrchangemonitor.repo.ChangeBatchRepo;
-import com.github.ricardobaumann.solrchangemonitor.repo.SolrRepo;
+import de.funkedigital.fram.solrchangemonitor.model.ChangeBatch;
+import de.funkedigital.fram.solrchangemonitor.repo.ChangeBatchRepo;
+import de.funkedigital.fram.solrchangemonitor.repo.SolrRepo;
 
 import org.apache.solr.client.solrj.SolrServerException;
 import org.junit.Before;

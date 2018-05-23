@@ -1,6 +1,6 @@
-package com.github.ricardobaumann.solrchangemonitor.health;
+package de.funkedigital.fram.solrchangemonitor.health;
 
-import com.github.ricardobaumann.solrchangemonitor.repo.SolrRepo;
+import de.funkedigital.fram.solrchangemonitor.repo.SolrRepo;
 
 import org.apache.solr.client.solrj.SolrServerException;
 import org.springframework.boot.actuate.health.Health;

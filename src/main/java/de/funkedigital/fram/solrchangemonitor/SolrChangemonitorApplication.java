@@ -1,6 +1,6 @@
-package com.github.ricardobaumann.solrchangemonitor;
+package de.funkedigital.fram.solrchangemonitor;
 
-import com.github.ricardobaumann.solrchangemonitor.config.AppProperties;
+import de.funkedigital.fram.solrchangemonitor.config.AppProperties;
 
 import org.apache.solr.client.solrj.SolrClient;
 import org.apache.solr.client.solrj.impl.HttpSolrClient;

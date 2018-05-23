@@ -1,7 +1,7 @@
-package com.github.ricardobaumann.solrchangemonitor.controller;
+package de.funkedigital.fram.solrchangemonitor.controller;
 
-import com.github.ricardobaumann.solrchangemonitor.model.ChangeBatch;
-import com.github.ricardobaumann.solrchangemonitor.service.SolrChangeService;
+import de.funkedigital.fram.solrchangemonitor.model.ChangeBatch;
+import de.funkedigital.fram.solrchangemonitor.service.SolrChangeService;
 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

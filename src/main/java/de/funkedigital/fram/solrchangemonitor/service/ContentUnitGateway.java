@@ -1,4 +1,4 @@
-package com.github.ricardobaumann.solrchangemonitor.service;
+package de.funkedigital.fram.solrchangemonitor.service;
 
 import org.springframework.integration.annotation.Gateway;
 import org.springframework.integration.annotation.MessagingGateway;

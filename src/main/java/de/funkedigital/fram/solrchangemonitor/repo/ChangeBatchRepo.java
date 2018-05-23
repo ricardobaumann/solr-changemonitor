@@ -1,6 +1,6 @@
-package com.github.ricardobaumann.solrchangemonitor.repo;
+package de.funkedigital.fram.solrchangemonitor.repo;
 
-import com.github.ricardobaumann.solrchangemonitor.model.ChangeBatch;
+import de.funkedigital.fram.solrchangemonitor.model.ChangeBatch;
 
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;

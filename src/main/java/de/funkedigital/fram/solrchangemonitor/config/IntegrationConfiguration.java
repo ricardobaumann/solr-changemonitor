@@ -1,6 +1,6 @@
-package com.github.ricardobaumann.solrchangemonitor.config;
+package de.funkedigital.fram.solrchangemonitor.config;
 
-import com.github.ricardobaumann.solrchangemonitor.service.ContentSource;
+import de.funkedigital.fram.solrchangemonitor.service.ContentSource;
 
 import org.springframework.cloud.stream.annotation.EnableBinding;
 import org.springframework.context.annotation.Configuration;

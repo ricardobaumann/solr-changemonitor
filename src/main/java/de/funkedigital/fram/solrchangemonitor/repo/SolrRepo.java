@@ -1,4 +1,4 @@
-package com.github.ricardobaumann.solrchangemonitor.repo;
+package de.funkedigital.fram.solrchangemonitor.repo;
 
 import org.apache.solr.client.solrj.SolrClient;
 import org.apache.solr.client.solrj.SolrQuery;
