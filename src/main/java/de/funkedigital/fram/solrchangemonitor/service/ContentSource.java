@@ -4,8 +4,12 @@ import org.springframework.cloud.stream.annotation.Output;
 import org.springframework.messaging.MessageChannel;
 
 public interface ContentSource {
-    String CHANNEL_NAME = "changemonitor";
+    String AUTHORS = "authors";
+    String TAGS = "tags";
 
     @Output
-    MessageChannel changemonitor();
+    MessageChannel authors();
+
+    @Output
+    MessageChannel tags();
 }

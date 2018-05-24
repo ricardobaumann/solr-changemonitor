@@ -19,17 +19,17 @@ import java.util.Map;
 import java.util.Optional;
 
 @Service
-public class SolrChangeService {
+public class SolrContentChangeService {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(SolrChangeService.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(SolrContentChangeService.class);
 
     private final SolrRepo solrRepo;
     private final ChangeBatchRepo changeBatchRepo;
     private final ContentUnitGateway contentUnitGateway;
 
-    public SolrChangeService(SolrRepo solrRepo,
-                             ChangeBatchRepo changeBatchRepo,
-                             ContentUnitGateway contentUnitGateway) {
+    public SolrContentChangeService(SolrRepo solrRepo,
+                                    ChangeBatchRepo changeBatchRepo,
+                                    ContentUnitGateway contentUnitGateway) {
         this.solrRepo = solrRepo;
         this.changeBatchRepo = changeBatchRepo;
         this.contentUnitGateway = contentUnitGateway;
@@ -46,8 +46,8 @@ public class SolrChangeService {
         LOGGER.info("Polling changes from [{}] on", lastDate);
 
         List<Map<String, Object>> results = solrRepo.getChangesSince(lastDate);
-        LOGGER.info("Sending {}", results);
-        results.forEach(contentUnitGateway::generate);
+        LOGGER.info("Sending {} results", results.size());
+        results.forEach(contentUnitGateway::generateAuthors);
         changeBatchRepo.save(new ChangeBatch(now));
     }
 

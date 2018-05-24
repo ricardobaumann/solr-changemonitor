@@ -18,12 +18,12 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
-public class SolrChangeServiceResetTest {
+public class SolrContentChangeServiceResetTest {
 
     @Mock
     private ChangeBatchRepo changeBatchRepo;
     @InjectMocks
-    private SolrChangeService solrChangeService;
+    private SolrContentChangeService solrContentChangeService;
 
     @Test
     public void shouldResetMillis() {
@@ -32,7 +32,7 @@ public class SolrChangeServiceResetTest {
         when(changeBatchRepo.save(Mockito.any())).thenReturn(null);
 
         //When
-        solrChangeService.resetMillis(1000L);
+        solrContentChangeService.resetMillis(1000L);
 
         //Then
         verify(changeBatchRepo).save(changeBatchArgumentCaptor.capture());
