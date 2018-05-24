@@ -6,6 +6,8 @@ import org.apache.solr.client.solrj.SolrServerException;
 import org.apache.solr.client.solrj.response.QueryResponse;
 import org.apache.solr.common.SolrDocument;
 import org.apache.solr.common.SolrDocumentList;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
 import java.io.IOException;
@@ -20,6 +22,8 @@ import java.util.stream.IntStream;
 
 @Repository
 public class SolrRepo {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(SolrRepo.class);
 
     private static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
     private static final Integer TAG_BATCH_SIZE = 1000;
@@ -59,7 +63,7 @@ public class SolrRepo {
             try {
                 return getTagObjectsPage(page * TAG_BATCH_SIZE).getResults().stream().map(toMap).collect(Collectors.toList());
             } catch (IOException | SolrServerException e) {
-                e.printStackTrace();
+                LOGGER.warn("Skipping tag page due to {}", e);
                 return null;
             }
         }).filter(Objects::nonNull)
