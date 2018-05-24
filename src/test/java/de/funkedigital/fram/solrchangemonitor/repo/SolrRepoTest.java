@@ -5,7 +5,6 @@ import org.apache.solr.client.solrj.SolrServerException;
 import org.apache.solr.client.solrj.response.QueryResponse;
 import org.apache.solr.common.SolrDocument;
 import org.apache.solr.common.SolrDocumentList;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -32,10 +31,6 @@ public class SolrRepoTest {
 
     @InjectMocks
     private SolrRepo solrRepo;
-
-    @Before
-    public void setUp() throws Exception {
-    }
 
     @Test
     public void shouldMapChangesToMap() throws IOException, SolrServerException {
