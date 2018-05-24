@@ -27,7 +27,7 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
-public class SolrChangeServiceTest {
+public class SolrContentChangeServiceTest {
 
     Map<String, Object> data = Collections.singletonMap("key", "value");
     ArgumentCaptor<Date> dateArgumentCaptor = ArgumentCaptor.forClass(Date.class);
@@ -39,7 +39,7 @@ public class SolrChangeServiceTest {
     @Mock
     private ContentUnitGateway contentUnitGateway;
     @InjectMocks
-    private SolrChangeService solrChangeService;
+    private SolrContentChangeService solrContentChangeService;
     private Date lastModifiedDate;
     private List<Map> repoResults;
 
@@ -49,13 +49,13 @@ public class SolrChangeServiceTest {
         when(changeBatchRepo.findFirstByOrderByCreatedAtDesc()).thenReturn(null);
         List<Map<String, Object>> results = Collections.singletonList(data);
         when(solrRepo.getChangesSince(any())).thenReturn(results);
-        doNothing().when(contentUnitGateway).generate(any());
+        doNothing().when(contentUnitGateway).generateAuthors(any());
     }
 
     @Test
     public void shouldLoadTheLast10SecsAtFirstTime() throws IOException, SolrServerException {
         run();
-        verify(contentUnitGateway).generate(mapArgumentCaptor.capture());
+        verify(contentUnitGateway).generateAuthors(mapArgumentCaptor.capture());
         repoResults = mapArgumentCaptor.getAllValues();
         assertThat(lastModifiedDate).isBeforeOrEqualsTo(new Date());
     }
@@ -63,7 +63,7 @@ public class SolrChangeServiceTest {
     @Test
     public void shouldMapRepoResultsToQueue() throws IOException, SolrServerException {
         run();
-        verify(contentUnitGateway).generate(mapArgumentCaptor.capture());
+        verify(contentUnitGateway).generateAuthors(mapArgumentCaptor.capture());
         repoResults = mapArgumentCaptor.getAllValues();
         assertThat(repoResults).containsExactlyInAnyOrder(data);
     }
@@ -82,12 +82,12 @@ public class SolrChangeServiceTest {
         //Then
         verify(solrRepo).getChangesSince(dateArgumentCaptor.capture());
         assertThat(dateArgumentCaptor.getValue()).isEqualTo(date);
-        verify(contentUnitGateway, never()).generate(any());
+        verify(contentUnitGateway, never()).generateAuthors(any());
     }
 
     private void run() throws IOException, SolrServerException {
         //When
-        solrChangeService.run();
+        solrContentChangeService.run();
 
         //Then
         verify(solrRepo).getChangesSince(dateArgumentCaptor.capture());
