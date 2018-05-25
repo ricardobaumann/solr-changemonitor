@@ -49,13 +49,13 @@ public class SolrContentChangeServiceTest {
         when(changeBatchRepo.findFirstByOrderByCreatedAtDesc()).thenReturn(null);
         List<Map<String, Object>> results = Collections.singletonList(data);
         when(solrRepo.getChangesSince(any())).thenReturn(results);
-        doNothing().when(contentUnitGateway).generateAuthors(any());
+        doNothing().when(contentUnitGateway).generateContent(any());
     }
 
     @Test
     public void shouldLoadTheLast10SecsAtFirstTime() throws IOException, SolrServerException {
         run();
-        verify(contentUnitGateway).generateAuthors(mapArgumentCaptor.capture());
+        verify(contentUnitGateway).generateContent(mapArgumentCaptor.capture());
         repoResults = mapArgumentCaptor.getAllValues();
         assertThat(lastModifiedDate).isBeforeOrEqualsTo(new Date());
     }
@@ -63,7 +63,7 @@ public class SolrContentChangeServiceTest {
     @Test
     public void shouldMapRepoResultsToQueue() throws IOException, SolrServerException {
         run();
-        verify(contentUnitGateway).generateAuthors(mapArgumentCaptor.capture());
+        verify(contentUnitGateway).generateContent(mapArgumentCaptor.capture());
         repoResults = mapArgumentCaptor.getAllValues();
         assertThat(repoResults).containsExactlyInAnyOrder(data);
     }
@@ -82,7 +82,7 @@ public class SolrContentChangeServiceTest {
         //Then
         verify(solrRepo).getChangesSince(dateArgumentCaptor.capture());
         assertThat(dateArgumentCaptor.getValue()).isEqualTo(date);
-        verify(contentUnitGateway, never()).generateAuthors(any());
+        verify(contentUnitGateway, never()).generateContent(any());
     }
 
     private void run() throws IOException, SolrServerException {

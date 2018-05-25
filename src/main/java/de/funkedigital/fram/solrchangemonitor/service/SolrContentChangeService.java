@@ -47,7 +47,7 @@ public class SolrContentChangeService {
 
         List<Map<String, Object>> results = solrRepo.getChangesSince(lastDate);
         LOGGER.info("Sending {} results", results.size());
-        results.forEach(contentUnitGateway::generateAuthors);
+        results.forEach(contentUnitGateway::generateContent);
         changeBatchRepo.save(new ChangeBatch(now));
     }
 

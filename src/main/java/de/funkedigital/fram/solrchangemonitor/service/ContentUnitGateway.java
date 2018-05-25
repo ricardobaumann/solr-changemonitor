@@ -8,8 +8,8 @@ import java.util.Map;
 @MessagingGateway
 public interface ContentUnitGateway {
 
-    @Gateway(requestChannel = ContentSource.AUTHORS)
-    void generateAuthors(Map<String, Object> stringObjectMap);
+    @Gateway(requestChannel = ContentSource.CONTENT)
+    void generateContent(Map<String, Object> stringObjectMap);
 
     @Gateway(requestChannel = ContentSource.TAGS)
     void generateTags(Map<String, Object> stringObjectMap);

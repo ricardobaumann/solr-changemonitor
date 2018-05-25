@@ -4,11 +4,11 @@ import org.springframework.cloud.stream.annotation.Output;
 import org.springframework.messaging.MessageChannel;
 
 public interface ContentSource {
-    String AUTHORS = "authors";
+    String CONTENT = "content";
     String TAGS = "tags";
 
     @Output
-    MessageChannel authors();
+    MessageChannel content();
 
     @Output
     MessageChannel tags();
